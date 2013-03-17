@@ -31,7 +31,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.fest.reflect.core.Reflection.field;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 
 @ContextConfiguration(classes = {Bootstrap.class})
@@ -62,6 +62,6 @@ public class TestAkkaDependencyInjection {
         businessActor.tell("McDonald");
 
         //THEN
-        verify(mockBusinessServiceLogger, times(1)).info(anyString(), anyObject());
+        verify(mockBusinessServiceLogger, timeout(1000).times(1)).info(anyString(), anyObject());
     }
 }

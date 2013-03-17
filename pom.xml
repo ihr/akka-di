@@ -9,12 +9,12 @@
     <version>1.0</version>
 
     <properties>
-        <akka.version>2.0.2</akka.version>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <akka.version>2.0.4</akka.version>
+        <spring.version>3.2.1.RELEASE</spring.version>
         <logback.version>1.0.6</logback.version>
         <fest-reflect.version>1.4</fest-reflect.version>
         <fest-assert.version>1.4</fest-assert.version>
-        <cglib.version>2.2</cglib.version>
+        <cglib.version>2.2.2</cglib.version>
     </properties>
 
     <developers>

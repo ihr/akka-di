@@ -71,9 +71,7 @@ public class SpringUntypedActorFactory implements UntypedActorFactory {
                 }
                 return untypedActor;
 
-            } catch (InstantiationException e) {
-                throw new IllegalStateException("Unable to create actor instance", e);
-            } catch (IllegalAccessException e) {
+            } catch (Exception e) {
                 throw new IllegalStateException("Unable to create actor instance", e);
             }
 
@@ -81,7 +79,7 @@ public class SpringUntypedActorFactory implements UntypedActorFactory {
 
         protected abstract Class<?> getActorClass();
 
-        protected abstract UntypedActor create() throws InstantiationException, IllegalAccessException;
+        protected abstract UntypedActor create() throws Exception;
 
     }
 
@@ -100,7 +98,7 @@ public class SpringUntypedActorFactory implements UntypedActorFactory {
         }
 
         @Override
-        protected UntypedActor create() throws InstantiationException, IllegalAccessException {
+        protected UntypedActor create() throws Exception {
             UntypedActor untypedActor = (UntypedActor) specificFactory.create();
             actorClass = untypedActor.getClass();
             return untypedActor;
