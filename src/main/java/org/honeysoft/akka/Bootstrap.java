@@ -18,8 +18,9 @@ package org.honeysoft.akka;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import org.honeysoft.akka.actor.BusinessActor;
-import org.honeysoft.akka.di.DependencyInjectionProps;
+import org.honeysoft.akka.di.SpringUntypedActorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -48,7 +49,7 @@ public class Bootstrap {
     @DependsOn({ACTOR_SYSTEM})
     public ActorRef businessActor() {
         return actorSystem.actorOf(//
-                new DependencyInjectionProps(applicationContext, BusinessActor.class), BUSINESS_ACTOR);
+                Props.create(new SpringUntypedActorFactory(BusinessActor.class, applicationContext)), BUSINESS_ACTOR);
     }
 
 }

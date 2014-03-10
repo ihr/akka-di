@@ -59,7 +59,7 @@ public class TestAkkaDependencyInjection {
         field("logger").ofType(Logger.class).in(businessService).postDecorateWith(mockBusinessServiceLogger);
 
         //WHEN
-        businessActor.tell("McDonald");
+        businessActor.tell("McDonald", businessActor);
 
         //THEN
         verify(mockBusinessServiceLogger, timeout(1000).times(1)).info(anyString(), anyObject());

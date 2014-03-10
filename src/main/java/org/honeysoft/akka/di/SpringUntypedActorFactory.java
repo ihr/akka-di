@@ -16,8 +16,10 @@
 
 package org.honeysoft.akka.di;
 
+import akka.actor.Actor;
 import akka.actor.UntypedActor;
 import akka.actor.UntypedActorFactory;
+import akka.japi.Creator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
@@ -26,7 +28,7 @@ import java.lang.reflect.Field;
 import static org.fest.reflect.util.Accessibles.setAccessible;
 import static org.fest.reflect.util.Accessibles.setAccessibleIgnoringExceptions;
 
-public class SpringUntypedActorFactory implements UntypedActorFactory {
+public class SpringUntypedActorFactory implements Creator<Actor> {
 
     private final DependencyInjectionFactory dependencyInjectionFactory;
 
@@ -34,11 +36,6 @@ public class SpringUntypedActorFactory implements UntypedActorFactory {
 
     public SpringUntypedActorFactory(Class<?> actorClass, ApplicationContext applicationContext) {
         this.dependencyInjectionFactory = new DefaultUntypedActorFactory(actorClass);
-        this.applicationContext = applicationContext;
-    }
-
-    public SpringUntypedActorFactory(UntypedActorFactory customFactory, ApplicationContext applicationContext) {
-        this.dependencyInjectionFactory = new SpecificUntypedActorFactory(customFactory);
         this.applicationContext = applicationContext;
     }
 

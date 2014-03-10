@@ -9,12 +9,15 @@
     <version>1.0</version>
 
     <properties>
-        <akka.version>2.0.4</akka.version>
-        <spring.version>3.2.1.RELEASE</spring.version>
+        <akka.version>2.3.0-RC4</akka.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
         <logback.version>1.0.6</logback.version>
         <fest-reflect.version>1.4</fest-reflect.version>
         <fest-assert.version>1.4</fest-assert.version>
         <cglib.version>2.2.2</cglib.version>
+        <junit.version>4.10</junit.version>
+        <mockito-all.version>1.9.0</mockito-all.version>
+        <awaitility.version>1.3.4</awaitility.version>
     </properties>
 
     <developers>
@@ -59,7 +62,7 @@
         <!-- Akka dependencies  -->
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-actor</artifactId>
+            <artifactId>akka-actor_2.10</artifactId>
             <version>${akka.version}</version>
         </dependency>
 
@@ -80,7 +83,7 @@
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-testkit</artifactId>
+            <artifactId>akka-testkit_2.10</artifactId>
             <version>${akka.version}</version>
             <scope>test</scope>
         </dependency>
@@ -88,7 +91,7 @@
         <dependency>
             <groupId>com.jayway.awaitility</groupId>
             <artifactId>awaitility</artifactId>
-            <version>1.3.4</version>
+            <version>${awaitility.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -100,13 +103,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.9.0</version>
+            <version>${mockito-all.version}</version>
             <scope>test</scope>
         </dependency>
 

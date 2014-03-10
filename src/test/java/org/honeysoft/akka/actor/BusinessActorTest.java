@@ -65,7 +65,7 @@ public class BusinessActorTest {
 
         //WHEN
         String testString = "test-string";
-        businessActorRef.tell(testString);
+        businessActorRef.tell(testString, businessActorRef);
 
         //THEN
         Awaitility.waitAtMost(Duration.FIVE_SECONDS).until(new Callable<Boolean>() {
